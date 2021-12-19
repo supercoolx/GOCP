@@ -1,0 +1,6 @@
+@include('website.partials.navigation')
+@include('website.partials.head')
+@include('website.partials.header')
+@yield('content')
+@include('website.partials.scripts')	
+@include('website.partials.footer')
