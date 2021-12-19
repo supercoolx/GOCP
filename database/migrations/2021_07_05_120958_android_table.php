@@ -13,7 +13,7 @@ class AndriodTable extends Migration
      */
     public function up()
     {
-         Schema::create('andriod', function (Blueprint $table) {
+         Schema::create('android', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('sim_no');
             $table->string('phone_number');
@@ -34,6 +34,6 @@ class AndriodTable extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('andriod');
+         Schema::dropIfExists('android');
     }
 }

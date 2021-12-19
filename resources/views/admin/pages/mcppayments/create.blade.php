@@ -20,7 +20,7 @@
                        <option value="">select Carrier Buy ID</option>
                         @if(!empty($mcp))
                         @foreach($mcp as $val)
-                            <option value="{{ $val->id }}">{{$val->mcp_name}}</option>
+                            <option value="{{ $val->id }}">{{$val->user_name}}</option>
                         @endforeach
                         @endif
                     </select>

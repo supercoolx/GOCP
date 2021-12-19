@@ -91,7 +91,7 @@ class RoutController extends Controller
     {
         $rout = Rout::findOrFail($id);
         $cellularcompanies = CellularCompanies::all();
-        return view('admin.pages.rout.edit',compact('rout'));
+        return view('admin.pages.rout.edit',compact('rout', 'cellularcompanies'));
         //
     }
 

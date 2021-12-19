@@ -14,7 +14,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="currncey_id">Select Currency Exchange*</label>
-                    <select name="currncey_id" id="currncey_id " class="custom-select">
+                    <select name="currncey_id" id="currncey_id" class="custom-select">
                        <option value="">select Currency Exchange</option>
                         @if(!empty($currency))
                         @foreach($currency as $value)
@@ -28,21 +28,21 @@
           <div class="col-md-4">
                 <div class="form-group">
                     <label for="date">Date*</label>
-                    <input type="text" id="date" name="date" class="form-control" value="{{ old('date') }}" required>
+                    <input type="text" id="date" name="date" class="form-control" value="{{ old('date', isset($currencyexchange) ? $currencyexchange->date : '') }}" required>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="currency_value">Currency Value*</label>
-                    <input type="text" id="currency_value" name="currency_value" class="form-control" value="{{ old('currency_value') }}" required>
+                    <input type="text" id="currency_value" name="currency_value" class="form-control" value="{{ old('currency_value', isset($currencyexchange) ? $currencyexchange->currency_value : '') }}" required>
                 </div>
             </div>
 
                 <div class="col-md-4">
                 <div class="form-group">
                     <label for="usa_dollar_value">Usa Dollar Value*</label>
-                    <input type="text" id="usa_dollar_value" name="usa_dollar_value" class="form-control" value="{{ old('usa_dollar_value') }}" required>
+                    <input type="text" id="usa_dollar_value" name="usa_dollar_value" class="form-control" value="{{ old('usa_dollar_value', isset($currencyexchange) ? $currencyexchange->usa_dollar_value : '') }}" required>
                 </div>
             </div>
            
@@ -74,6 +74,7 @@
 @section('scripts')
     <script type="text/javascript">
         $("#category").val("{{ $currencyexchange->category }}");
+        $("#currncey_id").val("{{ $currencyexchange->currncey_id }}");
         $("#status").val("{{ $currencyexchange->status }}");
         
         $(document).ready(function(e){

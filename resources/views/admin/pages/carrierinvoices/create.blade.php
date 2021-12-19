@@ -16,7 +16,7 @@
              <div class="col-md-4">
                 <div class="form-group">
                     <label for="carrier_buy_route_id">Carrier Buy ID*</label>
-                    <select name="carrier_by_rout_name" id="carrier_by_rout_name " class="custom-select">
+                    <select name="carrier_buy_rout_id" id="carrier_by_rout_id" class="custom-select">
                        <option value="">select Carrier Buy ID</option>
                         @if(!empty($carrierbuy))
                         @foreach($carrierbuy as $val)

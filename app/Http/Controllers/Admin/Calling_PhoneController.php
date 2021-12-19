@@ -92,7 +92,8 @@ class Calling_PhoneController extends Controller
     public function edit($id)
     {
         $callingphone = callingphone::findOrFail($id);
-        return view('admin.pages.callingphone.edit',compact('callingphone'));
+        $cellularcompanies = CellularCompanies::all();
+        return view('admin.pages.callingphone.edit',compact('callingphone', 'cellularcompanies'));
         //
     }
 
@@ -105,9 +106,9 @@ class Calling_PhoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $callingphone = new callingphone();
+            $callingphone = callingphone::findOrFail($id);
             $callingphone->calling_plan_name = $request->calling_plan_name;
-            $callingphone->cellular_companies_id = $request->cellcellular_companies_idular_company;
+            $callingphone->cellular_companies_id = $request->cellular_companies_id;
             $callingphone->call_plan_detail = $request->call_plan_detail;
             $callingphone->status = $request->status;
             $result = $callingphone->save();

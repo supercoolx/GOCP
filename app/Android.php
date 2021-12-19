@@ -8,6 +8,6 @@ class Android extends Model
 {
     
   
-   protected $table = 'android_table';
+   protected $table = 'android';
    protected $primaryKey = 'id';  
 }

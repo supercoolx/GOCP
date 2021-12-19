@@ -78,8 +78,8 @@ class Rout_Sale_PriceController extends Controller
     public function show($id)
     {
         $routsaleprice = Routesaleprice::findOrFail($id);
-        
-        return view('admin.pages.routsaleprice.show',compact('routsaleprice'));
+        $rout = Rout::all();
+        return view('admin.pages.routsaleprice.show',compact('routsaleprice', 'rout'));
         //
     }
 
@@ -106,7 +106,7 @@ class Rout_Sale_PriceController extends Controller
      */
     public function update(Request $request, $id)
     {
-          $routsaleprice = new Routesaleprice();
+          $routsaleprice = Routesaleprice::findOrFail($id);
           $routsaleprice->create_route_id = $request->create_route_id;
           $routsaleprice->sale_price = $request->sale_price;
           $routsaleprice->status = $request->status;

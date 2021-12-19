@@ -16,7 +16,7 @@
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-baccountantinfoed table-striped table-hover datatable datatable-User">
+            <table class="table  table-baccountantinfoed table-striped table-hover datatable datatable-User">
                 <thead>
                     <tr>
                         <th width="10">
@@ -78,7 +78,7 @@
                             </td>
                             
                             <td>
-                                {{ $accountantinfo->status ?? '' }}
+                                {{ $cpayments->status ?? '' }}
                             </td>
                             
                             <td>

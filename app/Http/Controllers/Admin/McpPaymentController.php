@@ -100,7 +100,7 @@ class McpPaymentController extends Controller
         $mcppayments = McpPayment::find($id);
         $mcppayments->mcp_id = $request->mcp_id;
         $mcppayments->time_range = $request->time_range;
-        $mcppayments->total_mints = $request->total_mints;
+        $mcppayments->gsm_mints = $request->gsm_mints;
         $mcppayments->create_payment = $request->create_payment;
         $mcppayments->status = $request->status;
         $result = $mcppayments->save();

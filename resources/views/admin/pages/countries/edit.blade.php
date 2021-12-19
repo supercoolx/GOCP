@@ -14,13 +14,13 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="name">Country Name*</label>
-                    <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}" required>
+                    <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($countries) ? $countries->name : '') }}" required>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="timezone_id">Time zone*</label>
-                    <select name="timezone_id" id="timezone_id " class="custom-select">
+                    <select name="timezone_id" id="timezone_id" class="custom-select">
                        <option value="">select Time zone</option>
                         @if(!empty($timezone))
                         @foreach($timezone as $val)
@@ -62,6 +62,7 @@
     <script type="text/javascript">
         $("#category").val("{{ $countries->category }}");
         $("#status").val("{{ $countries->status }}");
+        $("#timezone_id").val({{ $countries->timezone_id }});
         
         $(document).ready(function(e){
             var total = 0;

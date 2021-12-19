@@ -14,14 +14,14 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="cellular_company_name"> Cellular Company Name*</label>
-                    <input type="text" id="cellular_company_name" name="cellular_company_name" class="form-control" value="{{ old('cellular_company_name') }}" required>
+                    <input type="text" id="cellular_company_name" name="cellular_company_name" class="form-control" value="{{ old('cellular_company_name', isset($cellularcompanies) ? $cellularcompanies->cellular_company_name : '') }}" required>
                 </div>
             </div>
           
           <div class="col-md-4">
                 <div class="form-group">
                     <label for="countries_id">Select Country*</label>
-                    <select name="countries_id" id="countries_id " class="custom-select">
+                    <select name="countries_id" id="countries_id" class="custom-select">
                        <option value="">select Country</option>
                         @if(!empty($countries))
                         @foreach($countries as $value)
@@ -61,6 +61,7 @@
 @section('scripts')
     <script type="text/javascript">
         $("#category").val("{{ $cellularcompanies->category }}");
+        $("#countries_id ").val("{{ $cellularcompanies->countries_id }}");
         $("#status").val("{{ $cellularcompanies->status }}");
         
         $(document).ready(function(e){

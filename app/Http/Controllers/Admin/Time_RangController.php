@@ -100,7 +100,7 @@ class Time_RangController extends Controller
      */
     public function update(Request $request, $id)
     {
-          $timerang = new TimeRang();
+          $timerang = TimeRang::findOrFail($id);
           $timerang->from_time_stamp = $request->from_time_stamp;
           $timerang->to_time_stamp = $request->to_time_stamp;
           $timerang->status = $request->status;

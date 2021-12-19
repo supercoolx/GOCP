@@ -27,7 +27,7 @@
                         <th>
                       Type
                         </th>
-                        <td>{{ $timerang->To Time Stamp }}</td>
+                        <td>{{ $timerang->to_time_stamp }}</td>
                     </tr>
                    
                

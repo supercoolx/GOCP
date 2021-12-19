@@ -14,7 +14,7 @@
              <div class="col-md-4">
                 <div class="form-group">
                     <label for="calling_phone_id">Calling Plan Name*</label>
-                    <select name="calling_phone_id" id="calling_phone_id " class="custom-select">
+                    <select name="calling_phone_id" id="calling_phone_id" class="custom-select">
                        <option value="">select Calling Plan Name</option>
                         @if(!empty($callingphone))
                         @foreach($callingphone as $val)
@@ -28,14 +28,14 @@
           <div class="col-md-4">
                 <div class="form-group">
                     <label for="calling_plan_cost">Calling Plan Cost*</label>
-                    <input type="text" id="calling_plan_cost" name="calling_plan_cost" class="form-control" value="{{ old('calling_plan_cost') }}" required>
+                    <input type="text" id="calling_plan_cost" name="calling_plan_cost" class="form-control" value="{{ old('calling_plan_cost', isset($callingplan) ? $callingplan->calling_plan_cost : '') }}" required>
                 </div>
             </div>
            
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="usa_currency">USA Currency*</label>
-                    <input type="text" id="usa_currency" name="usa_currency" class="form-control" value="{{ old('usa_currency') }}" required>
+                    <input type="text" id="usa_currency" name="usa_currency" class="form-control" value="{{ old('usa_currency', isset($callingplan) ? $callingplan->usa_currency : '') }}" required>
                 </div>
             </div>
         
@@ -72,6 +72,7 @@
 @section('scripts')
     <script type="text/javascript">
         $("#category").val("{{ $callingplan->category }}");
+        $("#calling_phone_id").val("{{ $callingplan->calling_phone_id }}");
         $("#status").val("{{ $callingplan->status }}");
         
         $(document).ready(function(e){

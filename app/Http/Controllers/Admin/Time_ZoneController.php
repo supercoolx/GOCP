@@ -100,7 +100,7 @@ class Time_ZoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $timezone = new TimeZone();
+            $timezone = TimeZone::find($id);
             $timezone->timezone_name = $request->timezone_name;
             $timezone->actual = $request->actual;
            $timezone->status = $request->status;

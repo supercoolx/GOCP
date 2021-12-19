@@ -14,13 +14,13 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="route_name"> Rout Name*</label>
-                    <input type="text" id="route_name" name="route_name" class="form-control" value="{{ old('route_name') }}" required>
+                    <input type="text" id="route_name" name="route_name" class="form-control" value="{{ old('route_name', isset($rout) ? $rout->route_name : '') }}" required>
                 </div>
             </div>
           <div class="col-md-4">
                 <div class="form-group">
                     <label for="cellular_companies_id">Cellular Companies ID*</label>
-                    <select name="cellular_companies_id" id="cellular_companies_id " class="custom-select">
+                    <select name="cellular_companies_id" id="cellular_companies_id" class="custom-select">
                        <option value="">select Cellular Companies Id</option>
                         @if(!empty($cellularcompanies))
                         @foreach($cellularcompanies as $val)
@@ -60,6 +60,7 @@
 @section('scripts')
     <script type="text/javascript">
         $("#category").val("{{ $rout->category }}");
+        $("#cellular_companies_id").val("{{ $rout->cellular_companies_id }}");
         $("#status").val("{{ $rout->status }}");
         
         $(document).ready(function(e){

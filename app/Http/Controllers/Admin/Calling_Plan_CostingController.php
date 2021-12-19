@@ -92,7 +92,8 @@ class Calling_Plan_CostingController extends Controller
     public function edit($id)
     {
          $callingplan = CallingPlan::findOrFail($id);
-        return view('admin.pages.callingplan.edit',compact('callingplan'));
+         $callingphone = CallingPhone::all();
+        return view('admin.pages.callingplan.edit',compact('callingplan', 'callingphone'));
         //
     }
 

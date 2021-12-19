@@ -21,7 +21,7 @@
                         <th>
                           Carrier Buy Route Name
                         </th>
-                        <td>{{ $carrierinvoices->carrier_buy_id }}</td>
+                        <td>{{ $carrierinvoices->carrier_buy_rout_id }}</td>
                     </tr>
                     <tr>
                         <th>

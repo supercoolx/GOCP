@@ -1,64 +1,94 @@
 @extends('layouts.admin')
 @section('content')
 
+    <div style="margin-bottom: 10px;" class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-success" href="{{ route("admin.timezone.create") }}">
+                {{ trans('global.add') }} {{ trans('timezone') }}
+            </a>
+        </div>
+    </div>
+
 <div class="card">
     <div class="card-header">
-        {{ trans('Create timerang') }} 
+        {{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.timerang.store") }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="row">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="from_time_stamp">From Time Stamp*</label>
-                    <input type="time" id="from_time_stamp" name="from_time_stamp" class="form-control" value="{{ old('from_time_stamp') }}" required>
-                </div>
-            </div>
-            
-           
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="to_time_stamp">To Time Stamp*</label>
-                    <input type="time" id="to_time_stamp" name="to_time_stamp" class="form-control" value="{{ old('to_time_stamp') }}" required>
-                </div>
-            </div>
-          
+        <div class="table-responsive">
+            <table class="table table-baccountantinfoed table-striped table-hover datatable datatable-User">
+                <thead>
+                    <tr>
+                        <th width="10">
 
-     
-           
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="status">status*</label>
-                    <select name="status" id="status" class="form-control">
-                        <option value="">Please select</option>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select>
-                </div>
-            </div>
-            
+                        </th>
+                        <th>
+                            {{ trans('cruds.user.fields.id') }}
+                        </th>
+                        
+                        <th>
+                                From
+                        </th>
+                        <th>
+                                To
+                        </th>
+
+                        <td>
+                            Status
+                        </td>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($timerang as $key => $timerang)
+                        <tr data-entry-id="{{ $timerang->id }}">
+                            <td>
+
+                            </td>
+                            <td>
+                                {{ $timerang->id ?? '' }}
+                            </td>
+                            
+                            <td>
+                                {{ $timerang->from_time_stamp ?? '' }}
+                            </td>
+                            <td>
+                                {{ $timerang->to_time_stamp ?? '' }}
+                            </td>
+                        
+                            <td>
+                                {{ $timerang->status ?? '' }}
+                            </td>
+                            
+                            <td>
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.timerang.show', $timerang->id) }}">
+                                    {{ trans('global.view') }}
+                                </a>
+
+                                <a class="btn btn-xs btn-info" href="{{ route('admin.timerang.edit', $timerang->id) }}">
+                                    {{ trans('global.edit') }}
+                                </a>
+
+                                <form action="{{ route('admin.timerang.destroy', $timerang->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                </form>
+
+                            </td>
+
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-         
-         
-            <div class="form-group {{ $errors->has('roles') ? 'has-error' : '' }}">
-                
-                <p class="helper-block">
-                    {{ trans('cruds.user.fields.roles_helper') }}
-                </p>
-            </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
-            </div>
-        </form>
 
 
     </div>
 </div>
 @endsection
-
 @section('scripts')
- 
 
 @endsection

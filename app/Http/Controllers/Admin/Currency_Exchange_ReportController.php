@@ -58,6 +58,7 @@ class Currency_Exchange_ReportController extends Controller
             $currencyexchange->date = $request->date;
             $currencyexchange->currency_value = $request->currency_value;
             $currencyexchange->usa_dollar_value = $request->usa_dollar_value;
+            $currencyexchange->status = $request->status;
             
             $result = $currencyexchange->save();
 
@@ -114,7 +115,7 @@ class Currency_Exchange_ReportController extends Controller
             $currencyexchange->date = $request->date;
             $currencyexchange->currency_value = $request->currency_value;
             $currencyexchange->usa_dollar_value = $request->usa_dollar_value;
-            // $currencyexchange->status = $request->status;
+            $currencyexchange->status = $request->status;
             $result = $currencyexchange->save();
         return redirect()->route('admin.currencyexchange.index');
         //

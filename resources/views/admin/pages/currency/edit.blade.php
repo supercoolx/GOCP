@@ -14,14 +14,14 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="currncey_name"> Currency Name*</label>
-                    <input type="text" id="currncey_name" name="currncey_name" class="form-control" value="{{ old('currncey_name') }}" required>
+                    <input type="text" id="currncey_name" name="currncey_name" class="form-control" value="{{ old('currncey_name', isset($currency) ? $currency->currncey_name : '') }}" required>
                 </div>
             </div>
          
              <div class="col-md-4">
                 <div class="form-group">
                     <label for="countries_id">Select Country*</label>
-                    <select name="countries_id" id="countries_id " class="custom-select">
+                    <select name="countries_id" id="countries_id" class="custom-select">
                        <option value="">select Country</option>
                         @if(!empty($countries))
                         @foreach($countries as $value)
@@ -62,6 +62,7 @@
 @section('scripts')
     <script type="text/javascript">
         $("#category").val("{{ $currency->category }}");
+        $("#countries_id").val({{ $currency->countries_id }});
         $("#status").val("{{ $currency->status }}");
         
         $(document).ready(function(e){

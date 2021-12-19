@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('lineinfos','Admin\LineinfoController');
     Route::resource('lines','Admin\LineController');
     Route::resource('cpunits','Admin\PcunitController');
+    Route::resource('androids','Admin\AndroidController');
     Route::resource('whatsapps','Admin\WhatsappController');
     Route::resource('sims','Admin\SimController');
     Route::resource('digitals','Admin\DigitalController');

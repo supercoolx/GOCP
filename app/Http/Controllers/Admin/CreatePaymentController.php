@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\CreatePayment;
-use App\Cpinfo;
+use App\Carrier;
+use App\CarrierBuy;
 
 use App\Https\Traits\FileUploadTrait;
 use Exception;
@@ -16,6 +17,7 @@ class CreatePaymentController extends Controller
    public function index()
     {
         $cpayments = CreatePayment::all();
+        $cpinfo = Carrier::all();
         return view('admin.pages.cpayments.index',compact('cpayments'));
     }
 
@@ -27,7 +29,7 @@ class CreatePaymentController extends Controller
     public function create()
     {
         $cpayments = CreatePayment::all();
-        $cpinfo = Cpinfo::all();
+        $cpinfo = Carrier::all();
         return view('admin.pages.cpayments.create',compact('cpayments','cpinfo'));
     }
 
@@ -86,7 +88,7 @@ class CreatePaymentController extends Controller
     public function edit($id)
     {
         $cpayments = CreatePayment::findOrFail($id);
-        $cpinfo = CarrierBuy::all();
+        $cpinfo = Carrier::all();
         return view('admin.pages.cpayments.edit',compact('cpayments','cpinfo'));
     }
 

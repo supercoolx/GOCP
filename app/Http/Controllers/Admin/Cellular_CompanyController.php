@@ -104,7 +104,7 @@ class Cellular_CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $cellularcompanies = new CellularCompanies();
+            $cellularcompanies = CellularCompanies::findOrFail($id);
             $cellularcompanies->cellular_company_name = $request->cellular_company_name;
             $cellularcompanies->countries_id = $request->countries_id;
             $cellularcompanies->status = $request->status;

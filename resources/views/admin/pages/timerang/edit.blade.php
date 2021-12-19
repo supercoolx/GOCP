@@ -14,13 +14,13 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="from_time_stamp"> From Time Stamp*</label>
-                    <input type="time" id="from_time_stamp" name="from_time_stamp" class="form-control" value="{{ old('from_time_stamp') }}" required>
+                    <input type="time" id="from_time_stamp" name="from_time_stamp" class="form-control" value="{{ old('from_time_stamp', isset($timerang) ? $timerang->from_time_stamp : '') }}" required>
                 </div>
             </div>
           <div class="col-md-4">
                 <div class="form-group">
                     <label for="to_time_stamp">To Time Stamp*</label>
-                    <input type="time" id="to_time_stamp" name="to_time_stamp" class="form-control" value="{{ old('to_time_stamp') }}" required>
+                    <input type="time" id="to_time_stamp" name="to_time_stamp" class="form-control" value="{{ old('to_time_stamp', isset($timerang) ? $timerang->to_time_stamp : '') }}" required>
                 </div>
             </div>
            

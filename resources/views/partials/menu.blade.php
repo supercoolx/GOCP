@@ -12,7 +12,7 @@
             </li>
             @can('admins_manage')
                 <li class="nav-item nav-dropdown">
-                    <a class="nav-link  nav-dropdown-toggle" href="#">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
                         <i class="fa-fw fas fa-users nav-icon">
 
                         </i>
@@ -46,7 +46,7 @@
                     </ul>
                 </li>
                 <li class="nav-item nav-dropdown">
-                    <a class="nav-link  nav-dropdown-toggle" href="#">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
                         <i class="fa-fw fas fa-users nav-icon">
 
                         </i>
@@ -120,7 +120,7 @@
                     </ul>
                 </li>
                   <li class="nav-item nav-dropdown">
-                    <a class="nav-link  nav-dropdown-toggle" href="#">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
                         <i class="fa-fw fas fa-users nav-icon">
 
                         </i>
@@ -163,7 +163,7 @@
                 </li> 
                
                  <li class="nav-item nav-dropdown">
-                    <a class="nav-link  nav-dropdown-toggle" href="#">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
                         <i class="fa-fw fas fa-users nav-icon">
 
                         </i>
@@ -200,6 +200,91 @@
 
                             </i>
                           MCP Payment
+                        </a>
+                    </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="fa-fw fas fa-users nav-icon">
+
+                        </i>
+                        CP
+                    </a>
+                    <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="{{ route("admin.accountantinfos.index") }}" class="nav-link {{ request()->is('admin/accountantinfos') || request()->is('admin/accountantinfos/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt nav-icon">
+
+                            </i>
+                            CP Personal Info
+                        </a>
+                    </li>
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw fas fa-unlock-alt nav-icon">
+    
+                            </i>
+                            CP system Info Page
+                        </a>
+                        <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a href="{{ route("admin.whatsapps.index") }}" class="nav-link {{ request()->is('admin/whatsapps') || request()->is('admin/whatsapps/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-unlock-alt nav-icon">
+    
+                                </i>
+                                Whatsapp
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route("admin.androids.index") }}" class="nav-link {{ request()->is('admin/androids') || request()->is('admin/androids/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-unlock-alt nav-icon">
+    
+                                </i>
+                                Android
+                            </a>
+                        </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("admin.cpayments.index") }}" class="nav-link {{ request()->is('admin/cpayments') || request()->is('admin/cpayments/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt nav-icon">
+
+                            </i>
+                            CP system Statistics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("admin.mcppayments.index") }}" class="nav-link {{ request()->is('admin/mcppayments') || request()->is('admin/mcppayments/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt nav-icon">
+
+                            </i>
+                            CP Traffic
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("admin.mcppayments.index") }}" class="nav-link {{ request()->is('admin/mcppayments') || request()->is('admin/mcppayments/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt nav-icon">
+
+                            </i>
+                            CP Earning
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("admin.mcppayments.index") }}" class="nav-link {{ request()->is('admin/mcppayments') || request()->is('admin/mcppayments/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt nav-icon">
+
+                            </i>
+                            CP Payments
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("admin.mcppayments.index") }}" class="nav-link {{ request()->is('admin/mcppayments') || request()->is('admin/mcppayments/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt nav-icon">
+
+                            </i>
+                            CP Live Traffic
                         </a>
                     </li>
                     </ul>
@@ -287,7 +372,7 @@
                    
             @endcan
            <li class="nav-item nav-dropdown @if(request()->is('admin/orders*') || request()->is('admin/payments*') || request()->is('admin/generateorders*') || request()->is('admin/quotationgenerates*') || request()->is('admin/bookingstatus') || request()->is('admin/items'))open @endif">
-                <a class="nav-link  nav-dropdown-toggle" href="#">
+                <a class="nav-link nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-bars nav-icon">
 
                     </i>

@@ -14,14 +14,14 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="calling_plan_name"> Calling Plan Name*</label>
-                    <input type="text" id="calling_plan_name" name="calling_plan_name" class="form-control" value="{{ old('calling_plan_name') }}" required>
+                    <input type="text" id="calling_plan_name" name="calling_plan_name" class="form-control" value="{{ old('calling_plan_name', isset($callingphone) ? $callingphone->calling_plan_name : '') }}" required>
                 </div>
             </div>
           
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="cellular_companies_id">Cellular Companies ID*</label>
-                    <select name="cellular_companies_id" id="cellular_companies_id " class="custom-select">
+                    <select name="cellular_companies_id" id="cellular_companies_id" class="custom-select">
                        <option value="">select Cellular Companies Id</option>
                         @if(!empty($cellularcompanies))
                         @foreach($cellularcompanies as $val)
@@ -39,7 +39,7 @@
              <div class="col-md-4">
                 <div class="form-group">
                     <label for="call_plan_detail">Call Plan Detail*</label>
-                    <input type="text" id="call_plan_detail" name="call_plan_detail" class="form-control" value="{{ old('call_plan_detail') }}" required>
+                    <input type="text" id="call_plan_detail" name="call_plan_detail" class="form-control" value="{{ old('call_plan_detail', isset($callingphone) ? $callingphone->call_plan_detail : '') }}" required>
                 </div>
             </div>
            
@@ -71,6 +71,7 @@
 @section('scripts')
     <script type="text/javascript">
         $("#category").val("{{ $callingphone->category }}");
+        $("#cellular_companies_id").val("{{ $callingphone->cellular_companies_id }}");
         $("#status").val("{{ $callingphone->status }}");
         
         $(document).ready(function(e){

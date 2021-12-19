@@ -56,7 +56,7 @@ class Carrier_Buy_RoutController extends Controller
             $carrierbuy = new CarrierBuy();
             $carrierbuy->carrier_by_rout_name = $request->carrier_by_rout_name;
             $carrierbuy->cellular_companies_id = $request->cellular_companies_id;
-            $carrierbuy->carrier_info_id = $request->carrier_info_id;
+            $carrierbuy->carrier_id = $request->carrier_id;
             $carrierbuy->route_sale_price_id = $request->route_sale_price_id;
             $carrierbuy->sc_commision = $request->sc_commision;
             $carrierbuy->status = $request->status;
@@ -81,7 +81,7 @@ class Carrier_Buy_RoutController extends Controller
      */
     public function show($id)
     {
-        $carrierbuy = CallingPlan::findOrFail($id);
+        $carrierbuy = CarrierBuy::findOrFail($id);
         
         return view('admin.pages.carrierbuy.show',compact('carrierbuy'));
         //
@@ -95,7 +95,7 @@ class Carrier_Buy_RoutController extends Controller
      */
     public function edit($id)
     {
-        $carrierbuy = CallingPlan::findOrFail($id);
+        $carrierbuy = CarrierBuy::findOrFail($id);
         $cellularcompanies = CellularCompanies::all();
         $route = Routesaleprice::all();
         $carrier = Carrier::all();
@@ -112,10 +112,10 @@ class Carrier_Buy_RoutController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $carrierbuy = new cpsystem();
+        $carrierbuy = CarrierBuy::findOrFail($id);
             $carrierbuy->carrier_by_rout_name = $request->carrier_by_rout_name;
             $carrierbuy->cellular_companies_id = $request->cellular_companies_id;
-            $carrierbuy->carrier_info_id = $request->carrier_info_id;
+            $carrierbuy->carrier_id = $request->carrier_id;
             $carrierbuy->route_sale_price_id = $request->route_sale_price_id;
             $carrierbuy->sc_commision = $request->sc_commision;
             $carrierbuy->status = $request->status;
